@@ -1,0 +1,21 @@
+<div class="d-flex flex-row">
+  <div class="col-md-4" name="left panel">
+    <button class="btn btn-info mb-2" (click)="getJoke()">New Joke</button>
+    <div *ngFor="let joke of jokes.reverse()"
+    (click)="selectJoke(joke)"
+    [class.selected]="joke === selectedJoke" class="mb-3">
+          <span >{{joke["joke"]}}</span>
+      <br>
+    </div>
+
+  </div>
+  <div name="right panel">
+
+    <ngx-spinner type="ball-spin-clockwise">
+      <p> Please Wait. </p>
+    </ngx-spinner>
+    <div *ngIf="selectedJoke">
+      <h2>{{selectedJoke.joke}}</h2>
+    </div>
+  </div>
+</div>
